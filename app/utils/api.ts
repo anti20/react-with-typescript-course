@@ -73,7 +73,7 @@ function sortPlayers(players: Player[]) {
     return players.sort((a, b) => b.score - a.score);
 }
 
-export function battle(players: string[]) {
+export function battle(players: [string, string]) {
     return Promise.all([getUserData(players[0]), getUserData(players[1])]).then(
         (results) => sortPlayers(results),
     );
@@ -91,6 +91,6 @@ export function fetchPopularRepos(language: string) {
                 throw new Error(data.message);
             }
 
-            return data.items;
+            return data.items as Repo[];
         });
 }
