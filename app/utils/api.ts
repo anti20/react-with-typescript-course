@@ -3,14 +3,26 @@ const sec = "YOUR_SECRET_ID";
 const params = `?client_id=${id}&client_secret=${sec}`;
 
 export interface Profile {
+    login: string;
+    avatar_url: string;
     followers: number;
+    name: string;
+    location?: string;
+    company?: string;
+    following: number;
+    html_url: string;
 }
 
 export interface Repo {
+    name: string;
+    owner: Profile;
+    html_url: string;
     stargazers_count: number;
+    forks: number;
+    open_issues: number;
 }
 
-interface Player {
+export interface Player {
     score: number;
     profile: Profile;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { ThemeProvider } from "./contexts/theme";
+import { ThemeProvider, Theme } from "./contexts/theme";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading";
@@ -11,7 +11,7 @@ const Battle = React.lazy(() => import("./components/Battle"));
 const Results = React.lazy(() => import("./components/Results"));
 
 function App() {
-    const [theme, setTheme] = React.useState("light");
+    const [theme, setTheme] = React.useState<Theme>("light");
     const toggleTheme = () =>
         setTheme((theme) => (theme === "light" ? "dark" : "light"));
 
